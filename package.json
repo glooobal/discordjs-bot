@@ -14,8 +14,10 @@
     "typescript": "^5"
   },
   "scripts": {
-    "start": "bun --env-file=.env.production run src/index.ts",
-    "dev": "bun --env-file=.env.development run src/index.ts",
+    "start:prod": "bun --env-file=.env.production run src/index.ts",
+    "start:dev": "bun --env-file=.env.development run src/index.ts",
+    "deploy:prod": "bun --env-file=.env.production run src/deploy-commands.ts",
+    "deploy:dev": "bun --env-file=.env.development run src/deploy-commands.ts",
     "format": "prettier --write src/"
   },
   "type": "module"

@@ -1,6 +1,6 @@
-declare module "bun" {
-  interface Env {
-    discordToken: string;
-    discorClientId: string;
-  }
+declare module 'bun' {
+    interface Env {
+        discordToken: string;
+        discordClientId: string;
+    }
 }

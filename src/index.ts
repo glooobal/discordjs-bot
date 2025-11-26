@@ -1,7 +1,22 @@
-import { Client, GatewayIntentBits } from "discord.js";
+import { GatewayIntentBits, Partials } from 'discord.js';
 
-const discordClient = new Client({
-  intents: GatewayIntentBits.Guilds
+import { ExtendedClient } from './client';
+
+const {
+    DirectMessages,
+    Guilds,
+    GuildMembers,
+    GuildMessages,
+    GuildMessageReactions,
+    GuildModeration,
+    GuildVoiceStates,
+} = GatewayIntentBits;
+
+const { Channel, Message, Reaction, User } = Partials;
+
+export const client = new ExtendedClient({
+    intents: [Guilds],
+    partials: [Channel, Message, Reaction, User],
 });
 
-discordClient.login(Bun.env.discordToken);
+await client.init();
