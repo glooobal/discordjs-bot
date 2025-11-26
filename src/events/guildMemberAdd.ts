@@ -9,7 +9,7 @@ export default {
         );
 
         const embedMessage = new EmbedBuilder()
-            .setColor('DarkGreen')
+            .setColor('Greyple')
             .setAuthor({
                 name: `🔼 Member joined`,
                 iconURL: `${member.user.avatarURL() || member.user.defaultAvatarURL}`,
