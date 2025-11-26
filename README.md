@@ -1,15 +1,10 @@
-# takeaway-discord-bot
+<img width="900" height="200" alt="Multipurpose Discord.js Bot" src="https://github.com/glooobal/discordjs-bot/blob/main/assets/banner.jpg">
 
-To install dependencies:
+<!-- TO DO: Add features snippets -->
 
-```bash
-bun install
-```
+## Development
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.3.3. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+1. `bun install`
+2. Change `.env.example` to `.env.development` and fill it with your credentials. 
+3. `bun run deploy:prod` / `bun run deploy:dev`
+4. `bun run start:prod` / `bun run start:dev`
