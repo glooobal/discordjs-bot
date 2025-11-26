@@ -1,0 +1,24 @@
+import { EmbedBuilder, Events, GuildMember } from 'discord.js';
+
+export default {
+    name: Events.GuildMemberAdd,
+    once: false,
+    async execute(member: GuildMember) {
+        const logChannel = member.guild.channels.cache.get(
+            Bun.env.logChannelId,
+        );
+
+        const embedMessage = new EmbedBuilder()
+            .setColor('DarkGreen')
+            .setAuthor({
+                name: `🔼 Member joined`,
+                iconURL: `${member.user.avatarURL() || member.user.defaultAvatarURL}`,
+            })
+            .setDescription(`${member.user.username} (${member.user.id})`)
+            .setTimestamp();
+
+        if (logChannel?.isTextBased()) {
+            logChannel.send({ embeds: [embedMessage] });
+        }
+    },
+};
