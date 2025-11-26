@@ -9,8 +9,7 @@ export default {
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `🆗 User has been unbanned`,
-                iconURL: `${ban.user.avatarURL() || ban.user.defaultAvatarURL}`,
+                name: `⏫ User has been unbanned`
             })
             .setDescription(`${ban.user.username} (${ban.user.id})`)
             .setTimestamp();

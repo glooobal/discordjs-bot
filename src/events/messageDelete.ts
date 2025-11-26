@@ -13,7 +13,7 @@ export default {
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `♻️ Message deleted`,
+                name: `⏫ Message deleted`,
             })
             .setDescription(
                 `Sent at: <t:${Math.round(message.createdTimestamp / 1000)}:R>\nIn channel: <#${message.channelId}>\nBy user: <@${message.author.id}>\n\nContent: ${message.content}`,

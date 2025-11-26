@@ -22,7 +22,7 @@ export default {
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `♻️ Message/s deleted`,
+                name: `⏫ Message/s deleted`,
             })
             .setDescription(
                 `${messages.size} messages deleted in ${firstMessage.channel}`,

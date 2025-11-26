@@ -1,19 +1,19 @@
-import { EmbedBuilder, Events, GuildMember } from 'discord.js';
+import { EmbedBuilder, Events, Role } from 'discord.js';
 
 export default {
-    name: Events.GuildMemberRemove,
+    name: Events.GuildRoleCreate,
     once: false,
-    async execute(member: GuildMember) {
-        const logChannel = member.guild.channels.cache.get(
+    async execute(role: Role) {
+        const logChannel = role.guild.channels.cache.get(
             Bun.env.logChannelId,
         );
 
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `⏫ Member left`
+                name: `⏫ Role created`
             })
-            .setDescription(`${member.user.username} (${member.user.id})`)
+            .setDescription(`${role.name} (${role.id})`)
             .setTimestamp();
 
         if (logChannel?.isTextBased()) {
