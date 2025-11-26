@@ -9,7 +9,7 @@ export default {
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `⏫ User has been banned`
+                name: `⏫ User has been banned`,
             })
             .setDescription(
                 `User: ${ban.user.username} (${ban.user.id})\nReason: ${ban?.reason || 'not specified'}`,

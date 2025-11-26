@@ -4,14 +4,12 @@ export default {
     name: Events.GuildRoleCreate,
     once: false,
     async execute(role: Role) {
-        const logChannel = role.guild.channels.cache.get(
-            Bun.env.logChannelId,
-        );
+        const logChannel = role.guild.channels.cache.get(Bun.env.logChannelId);
 
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `⏫ Role created`
+                name: `⏫ Role created`,
             })
             .setDescription(`${role.name} (${role.id})`)
             .setTimestamp();

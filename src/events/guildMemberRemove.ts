@@ -11,7 +11,7 @@ export default {
         const embedMessage = new EmbedBuilder()
             .setColor('Greyple')
             .setAuthor({
-                name: `⏫ Member left`
+                name: `⏫ Member left`,
             })
             .setDescription(`${member.user.username} (${member.user.id})`)
             .setTimestamp();
