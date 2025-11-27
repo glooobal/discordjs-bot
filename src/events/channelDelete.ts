@@ -4,22 +4,26 @@ export default {
     name: Events.ChannelDelete,
     once: false,
     async execute(channel: GuildChannel) {
-        if (!channel.guild) return;
+        try {
+            if (!channel.guild) return;
 
-        const logChannel = channel.guild.channels.cache.get(
-            Bun.env.logChannelId,
-        );
+            const logChannel = channel.guild.channels.cache.get(
+                Bun.env.logChannelId,
+            );
 
-        const embedMessage = new EmbedBuilder()
-            .setColor('Greyple')
-            .setAuthor({
-                name: `⏫ Channel created`,
-            })
-            .setDescription(`<#${channel.id}>`)
-            .setTimestamp();
+            const embedMessage = new EmbedBuilder()
+                .setColor('Greyple')
+                .setAuthor({
+                    name: `⏫ Channel created`,
+                })
+                .setDescription(`<#${channel.id}>`)
+                .setTimestamp();
 
-        if (logChannel?.isTextBased()) {
-            logChannel.send({ embeds: [embedMessage] });
+            if (logChannel?.isTextBased()) {
+                logChannel.send({ embeds: [embedMessage] });
+            }
+        } catch (err) {
+            console.error("Can't log @ChannelDelete event\n\n", err);
         }
     },
 };
