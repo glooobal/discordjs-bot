@@ -55,12 +55,17 @@ export class ExtendedClient extends Client {
         try {
             await connect(Bun.env.mongoUri);
         } catch (err) {
-            console.error('Can\'t connect to MongoDB, check your .env configuration\n\n', err);
-            process.exit(0)
+            console.error(
+                "Can't connect to MongoDB, check your .env configuration\n\n",
+                err,
+            );
+            process.exit(0);
         }
     }
 
     async init() {
+        await this.connectDatabase();
+
         await this.loadEvents();
         await this.loadCommands();
 
