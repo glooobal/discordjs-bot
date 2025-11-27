@@ -1,6 +1,8 @@
 import { Client, Collection } from 'discord.js';
 import type { ClientOptions } from 'discord.js';
 
+import { connect } from 'mongoose';
+
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -46,6 +48,15 @@ export class ExtendedClient extends Client {
             if (command?.data && command?.execute) {
                 this.commands.set(command.data.name, command);
             }
+        }
+    }
+
+    async connectDatabase() {
+        try {
+            await connect(Bun.env.mongoUri);
+        } catch (err) {
+            console.error('Can\'t connect to MongoDB, check your .env configuration\n\n', err);
+            process.exit(0)
         }
     }
 

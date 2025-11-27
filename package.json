@@ -4,14 +4,15 @@
   "private": "true",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "discord.js": "^14.25.1"
+    "discord.js": "^14.25.1",
+    "mongoose": "^9.0.0"
   },
   "devDependencies": {
     "@types/bun": "^1.3.3",
     "prettier": "^3.6.2"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "start:prod": "bun --env-file=.env.production run src/index.ts",

@@ -3,6 +3,8 @@ declare module 'bun' {
         discordToken: string;
         discordClientId: string;
 
+        mongoUri: string;
+
         logChannelId: string;
     }
 }
