@@ -18,7 +18,7 @@ export default {
                 .setTimestamp();
 
             if (logChannel?.isTextBased()) {
-                logChannel.send({ embeds: [embedMessage] });
+                await logChannel.send({ embeds: [embedMessage] });
             }
         } catch (err) {
             console.error("Can't log @GuildRoleDelete event\n\n", err);

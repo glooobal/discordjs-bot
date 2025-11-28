@@ -21,7 +21,7 @@ export default {
                 );
 
             if (logChannel?.isTextBased()) {
-                logChannel.send({ embeds: [embedMessage] });
+                await logChannel.send({ embeds: [embedMessage] });
             }
         } catch (err) {
             console.error("Can't log @MessageDelete event\n\n", err);
