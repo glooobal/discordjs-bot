@@ -1,8 +1,9 @@
 {
-  "name": "takeaway-discord-bot",
-  "module": "index.ts",
-  "private": "true",
+  "name": "discordjs-bot",
+  "module": "src/index.ts",
+  "private": true,
   "license": "GPL-3.0-only",
+  "type": "module",
   "dependencies": {
     "discord.js": "^14.25.1",
     "mongoose": "^9.0.0"
@@ -15,11 +16,10 @@
     "typescript": "^5.9.3"
   },
   "scripts": {
-    "start:prod": "bun --env-file=.env.production run src/index.ts",
-    "start:dev": "bun --env-file=.env.development run src/index.ts",
+    "start:prod": "bun --env-file=.env.production run .",
+    "start:dev": "bun --env-file=.env.development run .",
     "deploy:prod": "bun --env-file=.env.production run src/deploy-commands.ts",
     "deploy:dev": "bun --env-file=.env.development run src/deploy-commands.ts",
     "format": "prettier --write src/"
-  },
-  "type": "module"
+  }
 }
