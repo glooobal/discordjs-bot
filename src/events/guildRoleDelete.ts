@@ -1,4 +1,4 @@
-import { EmbedBuilder, Events, Role } from 'discord.js';
+import { EmbedBuilder, Events, Role, time } from 'discord.js';
 
 export default {
     name: Events.GuildRoleCreate,
@@ -14,8 +14,9 @@ export default {
                 .setAuthor({
                     name: `⏫ Role deleted`,
                 })
-                .setDescription(`${role.name} (${role.id})`)
-                .setTimestamp();
+                .setDescription(
+                    `${role.name} (${role.id})\n\nCreated: ${time(role.createdAt)}\n Deleted: ${time(new Date())}`,
+                );
 
             if (logChannel?.isTextBased()) {
                 await logChannel.send({ embeds: [embedMessage] });

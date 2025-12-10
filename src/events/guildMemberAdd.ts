@@ -1,4 +1,4 @@
-import { EmbedBuilder, Events, GuildMember } from 'discord.js';
+import { EmbedBuilder, Events, GuildMember, time } from 'discord.js';
 
 export default {
     name: Events.GuildMemberAdd,
@@ -14,8 +14,9 @@ export default {
                 .setAuthor({
                     name: `⏫ Member joined`,
                 })
-                .setDescription(`${member.user.username} (${member.user.id})`)
-                .setTimestamp();
+                .setDescription(
+                    `User: ${member.user.username} (${member.user.id})\n\nCreated: ${time(member.user.createdAt)}\nJoined: ${time(new Date())}`,
+                );
 
             if (logChannel?.isTextBased()) {
                 await logChannel.send({ embeds: [embedMessage] });

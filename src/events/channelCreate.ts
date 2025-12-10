@@ -1,4 +1,4 @@
-import { EmbedBuilder, Events, GuildChannel } from 'discord.js';
+import { EmbedBuilder, Events, GuildChannel, time } from 'discord.js';
 
 export default {
     name: Events.ChannelCreate,
@@ -16,8 +16,9 @@ export default {
                 .setAuthor({
                     name: `⏫ Channel created`,
                 })
-                .setDescription(`<#${channel.id}>`)
-                .setTimestamp();
+                .setDescription(
+                    `Channel: <#${channel.id}> (${channel.id})\n\nCreated: ${time(channel.createdAt)}`,
+                );
 
             if (logChannel?.isTextBased()) {
                 await logChannel.send({ embeds: [embedMessage] });
